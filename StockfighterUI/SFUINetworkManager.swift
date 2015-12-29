@@ -9,7 +9,10 @@
 import Foundation
 
 class SFNetworkManager {
-    let stockFighterServerStatusGood : Bool;
+    
+    static let sharedInstance = SFNetworkManager();
+    
+    var stockFighterServerStatusGood : Bool;
     
     init()
     {
@@ -37,7 +40,11 @@ class SFNetworkManager {
             
             do {
                 let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
-                
+                if(jsonResult["error"] == nil) {
+                    self.stockFighterServerStatusGood = false;
+                } else {
+                    self.stockFighterServerStatusGood = true;
+                }
                 print("jsonResult:\(jsonResult)");
             } catch let error as NSError {
                 print("json error: \(error.localizedDescription)")
