@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
-        SFNetworkManager.sharedInstance.checkStockfighterAPIHealth();
+        SFUINetworkManager.sharedInstance.checkStockfighterAPIHealth();
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {

@@ -686,6 +686,9 @@
                             </textField>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="healthStateIndicatorView" destination="jxr-da-6y1" id="IjQ-ia-3th"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

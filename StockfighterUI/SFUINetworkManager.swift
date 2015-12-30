@@ -8,9 +8,9 @@
 
 import Foundation
 
-class SFNetworkManager {
+class SFUINetworkManager {
     
-    static let sharedInstance = SFNetworkManager();
+    static let sharedInstance = SFUINetworkManager();
     
     var stockFighterServerStatusGood : Bool;
     
