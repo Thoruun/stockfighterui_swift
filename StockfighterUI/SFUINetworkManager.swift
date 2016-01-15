@@ -12,7 +12,7 @@ class SFUINetworkManager {
     
     static let sharedInstance = SFUINetworkManager();
     
-    var stockFighterServerStatusGood : Bool;
+    var stockFighterServerStatusGood = false;
     
     init()
     {
@@ -24,7 +24,6 @@ class SFUINetworkManager {
     {
 
         let url = NSURL(string: "https://api.stockfighter.io/ob/api/heartbeat")
-        //let url = NSURL(string: "http://www.google.com")
         let session = NSURLSession.sharedSession()
         let dataTask = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
             //do something
@@ -41,10 +40,19 @@ class SFUINetworkManager {
             do {
                 let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String:AnyObject]
                 if(jsonResult["error"] == nil) {
-                    self.stockFighterServerStatusGood = false;
+                    if (self.stockFighterServerStatusGood == true)
+                    {
+                        self.stockFighterServerStatusGood = false;
+                        self.postServerStatusChangeNotification()
+                    }
                 } else {
-                    self.stockFighterServerStatusGood = true;
+                    if (self.stockFighterServerStatusGood == false)
+                    {
+                        self.stockFighterServerStatusGood = true;
+                        self.postServerStatusChangeNotification()
+                    }
                 }
+                
                 print("jsonResult:\(jsonResult)");
             } catch let error as NSError {
                 print("json error: \(error.localizedDescription)")
@@ -54,6 +62,11 @@ class SFUINetworkManager {
         
         dataTask.resume();
 
+    }
+    
+    func postServerStatusChangeNotification()
+    {
+        NSNotificationCenter.defaultCenter().postNotificationName(stockfighterServerStatusChangedNotification, object: nil)
     }
     
     func getOrderBookForAStock()

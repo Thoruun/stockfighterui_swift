@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49AA5F6E1C48DB40001FBCBE /* SFUIGlobalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AA5F6D1C48DB40001FBCBE /* SFUIGlobalNotifications.swift */; };
+		49AA5F711C48EB31001FBCBE /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AA5F701C48EB31001FBCBE /* NSImage+Extensions.swift */; };
 		8A706F561C22B39300D8A220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A706F551C22B39300D8A220 /* AppDelegate.swift */; };
 		8A706F581C22B39300D8A220 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A706F571C22B39300D8A220 /* ViewController.swift */; };
 		8A706F5A1C22B39300D8A220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A706F591C22B39300D8A220 /* Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49AA5F6D1C48DB40001FBCBE /* SFUIGlobalNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFUIGlobalNotifications.swift; sourceTree = "<group>"; };
+		49AA5F701C48EB31001FBCBE /* NSImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Extensions.swift"; sourceTree = "<group>"; };
 		8A706F521C22B39300D8A220 /* StockfighterUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockfighterUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A706F551C22B39300D8A220 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A706F571C22B39300D8A220 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49AA5F6F1C48EAF4001FBCBE /* Exstensions */ = {
+			isa = PBXGroup;
+			children = (
+				49AA5F701C48EB31001FBCBE /* NSImage+Extensions.swift */,
+			);
+			name = Exstensions;
+			sourceTree = "<group>";
+		};
 		8A706F491C22B39300D8A220 = {
 			isa = PBXGroup;
 			children = (
@@ -54,12 +66,14 @@
 		8A706F541C22B39300D8A220 /* StockfighterUI */ = {
 			isa = PBXGroup;
 			children = (
+				49AA5F6F1C48EAF4001FBCBE /* Exstensions */,
 				8A706F641C22BBC000D8A220 /* Managers */,
 				8A706F551C22B39300D8A220 /* AppDelegate.swift */,
 				8A706F571C22B39300D8A220 /* ViewController.swift */,
 				8A706F591C22B39300D8A220 /* Assets.xcassets */,
 				8A706F5B1C22B39300D8A220 /* Main.storyboard */,
 				8A706F5E1C22B39300D8A220 /* Info.plist */,
+				49AA5F6D1C48DB40001FBCBE /* SFUIGlobalNotifications.swift */,
 			);
 			path = StockfighterUI;
 			sourceTree = "<group>";
@@ -144,6 +158,8 @@
 			files = (
 				8A706F581C22B39300D8A220 /* ViewController.swift in Sources */,
 				8A706F661C22BBE600D8A220 /* SFUINetworkManager.swift in Sources */,
+				49AA5F6E1C48DB40001FBCBE /* SFUIGlobalNotifications.swift in Sources */,
+				49AA5F711C48EB31001FBCBE /* NSImage+Extensions.swift in Sources */,
 				8A706F561C22B39300D8A220 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +301,7 @@
 				8A706F631C22B39300D8A220 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
