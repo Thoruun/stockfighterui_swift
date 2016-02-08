@@ -8,17 +8,25 @@
 
 import Foundation
 
-class SFUINetworkManager {
+class SFUINetworkManager : NSObject {
     
     static let sharedInstance = SFUINetworkManager();
     
-    var stockFighterServerStatusGood = false;
+    var stockFighterServerStatusGood = false
+    var starFighterServerHealthCheckTimer : NSTimer?
+    let SERVER_HEALTH_CHECK_INTERVAL_SECONDS = 10.0
     
-    init()
+    override init()
     {
-        stockFighterServerStatusGood = false;
+        super.init()
+        stockFighterServerStatusGood = false
+        starFighterServerHealthCheckTimer = NSTimer.scheduledTimerWithTimeInterval(SERVER_HEALTH_CHECK_INTERVAL_SECONDS, target: self, selector: "timerAction", userInfo: nil, repeats: true)
     }
     
+    func timerAction()
+    {
+        self.checkStockfighterAPIHealth()
+    }
 
     func checkStockfighterAPIHealth()
     {
@@ -28,7 +36,7 @@ class SFUINetworkManager {
         let dataTask = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
             //do something
             
-            print("Task completed")
+            print("Server health task completed at - \(NSDate())")
             if(error != nil) {
                 // If there is an error in the web request, print it to the console
                 print(error!.localizedDescription)
