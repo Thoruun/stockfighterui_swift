@@ -18,13 +18,13 @@ class ViewController: NSViewController {
         // Do any additional setup after loading the view.
         self.healthStateIndicatorView.wantsLayer = true
 //        addObserver(self, selector: "turnOnMemoryTimer", name: "turnOnMemoryArc", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshStateIndicatorView", name: stockfighterServerStatusChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.refreshStateIndicatorView), name: NSNotification.Name(rawValue: stockfighterServerStatusChangedNotification), object: nil)
 
         self.refreshStateIndicatorView()
 
     }
     
-    override var representedObject: AnyObject? {
+    override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
         }
@@ -35,14 +35,14 @@ class ViewController: NSViewController {
         var stateColor : NSColor
         if SFUINetworkManager.sharedInstance.stockFighterServerStatusGood == false
         {
-            stateColor = NSColor.redColor()
+            stateColor = NSColor.red
         }
         else
         {
-            stateColor = NSColor.greenColor()
+            stateColor = NSColor.green
         }
         
-        dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+        DispatchQueue.main.async { [unowned self] in
             self.healthStateIndicatorView.image = NSImage.swatchWithColor(stateColor, size: self.healthStateIndicatorView.frame.size)
         }
     }

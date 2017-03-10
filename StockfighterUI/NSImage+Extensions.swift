@@ -10,10 +10,10 @@ import Foundation
 import Cocoa
 
 extension NSImage {
-    class func swatchWithColor(color: NSColor, size: NSSize) -> NSImage {
+    class func swatchWithColor(_ color: NSColor, size: NSSize) -> NSImage {
         let image = NSImage(size: size)
         image.lockFocus()
-        color.drawSwatchInRect(NSMakeRect(0, 0, size.width, size.height))
+        color.drawSwatch(in: NSMakeRect(0, 0, size.width, size.height))
         image.unlockFocus()
         return image
     }
